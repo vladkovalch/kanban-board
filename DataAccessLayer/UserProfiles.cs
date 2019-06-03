@@ -18,7 +18,6 @@ namespace DataAccessLayer
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string ImagePath { get; set; }
-        public int UserId { get; set; }
     
         public virtual Users Users { get; set; }
     }

@@ -18,6 +18,7 @@ namespace DataAccessLayer
         public Boards()
         {
             this.Lists = new HashSet<Lists>();
+            this.Users = new HashSet<Users>();
         }
     
         public int Id { get; set; }
@@ -26,5 +27,7 @@ namespace DataAccessLayer
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lists> Lists { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

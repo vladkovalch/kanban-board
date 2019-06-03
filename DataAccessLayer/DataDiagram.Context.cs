@@ -13,10 +13,10 @@ namespace DataAccessLayer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class KanbanBoardDBEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public KanbanBoardDBEntities()
+            : base("name=KanbanBoardDBEntities")
         {
         }
     

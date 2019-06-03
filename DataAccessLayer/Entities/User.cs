@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 using System.Text;
@@ -8,9 +9,8 @@ namespace DataAccessLayer.Models
 	[Table("Users")]
 	public class User
 	{
-		[Key, ForeignKey("Profile")]
+		[Key]
 		public int Id { get; set; }
-		public UserProfile Profile { get; set; }
 
 		[MaxLength(64)]
 		[Required(AllowEmptyStrings = false)]
@@ -47,5 +47,11 @@ namespace DataAccessLayer.Models
 				return builder.ToString();
 			}
 		}
+
+		[ForeignKey("Profile")]
+		public int ProfileId { get; set; }
+		public UserProfile Profile { get; set; }
+
+		public ICollection<Board> Boards { get; set; }
 	}
 }

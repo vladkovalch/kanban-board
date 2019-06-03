@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DataAccessLayer.ContextModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="KanbanBoardDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Boards">
           <Key>
             <PropertyRef Name="Id" />
@@ -30,23 +30,31 @@
           <Property Name="Name" Type="nvarchar" MaxLength="24" Nullable="false" />
           <Property Name="Board_Id" Type="int" />
         </EntityType>
+        <EntityType Name="UserBoards">
+          <Key>
+            <PropertyRef Name="User_Id" />
+            <PropertyRef Name="Board_Id" />
+          </Key>
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Board_Id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserProfiles">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="24" Nullable="false" />
           <Property Name="SecondName" Type="nvarchar" MaxLength="42" Nullable="false" />
           <Property Name="ImagePath" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="Sha256Password" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_Cards_dbo_Lists_List_Id">
           <End Role="Lists" Type="Self.Lists" Multiplicity="0..1" />
@@ -72,22 +80,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Users_dbo_UserProfiles_Id">
-          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+        <Association Name="FK_dbo_UserBoards_dbo_Boards_Board_Id">
+          <End Role="Boards" Type="Self.Boards" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserBoards" Type="Self.UserBoards" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="UserProfiles">
+            <Principal Role="Boards">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Users">
+            <Dependent Role="UserBoards">
+              <PropertyRef Name="Board_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserBoards_dbo_Users_User_Id">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserBoards" Type="Self.UserBoards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserBoards">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserProfiles_dbo_Users_Id">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfiles">
               <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DataAccessLayerContextModelStoreContainer">
+        <EntityContainer Name="KanbanBoardDBModelStoreContainer">
           <EntitySet Name="Boards" EntityType="Self.Boards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cards" EntityType="Self.Cards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lists" EntityType="Self.Lists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserBoards" EntityType="Self.UserBoards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfiles" EntityType="Self.UserProfiles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_Cards_dbo_Lists_List_Id" Association="Self.FK_dbo_Cards_dbo_Lists_List_Id">
@@ -98,16 +135,24 @@
             <End Role="Boards" EntitySet="Boards" />
             <End Role="Lists" EntitySet="Lists" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Users_dbo_UserProfiles_Id" Association="Self.FK_dbo_Users_dbo_UserProfiles_Id">
-            <End Role="UserProfiles" EntitySet="UserProfiles" />
+          <AssociationSet Name="FK_dbo_UserBoards_dbo_Boards_Board_Id" Association="Self.FK_dbo_UserBoards_dbo_Boards_Board_Id">
+            <End Role="Boards" EntitySet="Boards" />
+            <End Role="UserBoards" EntitySet="UserBoards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserBoards_dbo_Users_User_Id" Association="Self.FK_dbo_UserBoards_dbo_Users_User_Id">
             <End Role="Users" EntitySet="Users" />
+            <End Role="UserBoards" EntitySet="UserBoards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserProfiles_dbo_Users_Id" Association="Self.FK_dbo_UserProfiles_dbo_Users_Id">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DataAccessLayer.ContextModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="KanbanBoardDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Boards">
           <Key>
             <PropertyRef Name="Id" />
@@ -116,6 +161,7 @@
           <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Lists" Relationship="Self.FK_dbo_Lists_dbo_Boards_Board_Id" FromRole="Boards" ToRole="Lists" />
+          <NavigationProperty Name="Users" Relationship="Self.UserBoards" FromRole="Boards" ToRole="Users" />
         </EntityType>
         <EntityType Name="Cards">
           <Key>
@@ -141,21 +187,22 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SecondName" Type="String" MaxLength="42" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_UserProfiles_Id" FromRole="UserProfiles" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_UserProfiles_dbo_Users_Id" FromRole="UserProfiles" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Sha256Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="UserProfiles" Relationship="Self.FK_dbo_Users_dbo_UserProfiles_Id" FromRole="Users" ToRole="UserProfiles" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.FK_dbo_UserProfiles_dbo_Users_Id" FromRole="Users" ToRole="UserProfiles" />
+          <NavigationProperty Name="Boards" Relationship="Self.UserBoards" FromRole="Users" ToRole="Boards" />
         </EntityType>
         <Association Name="FK_dbo_Lists_dbo_Boards_Board_Id">
           <End Role="Boards" Type="Self.Boards" Multiplicity="0..1" />
@@ -181,19 +228,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Users_dbo_UserProfiles_Id">
-          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+        <Association Name="FK_dbo_UserProfiles_dbo_Users_Id">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="UserProfiles">
+            <Principal Role="Users">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Users">
+            <Dependent Role="UserProfiles">
               <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <Association Name="UserBoards">
+          <End Role="Boards" Type="Self.Boards" Multiplicity="*" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="KanbanBoardDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Boards" EntityType="Self.Boards" />
           <EntitySet Name="Cards" EntityType="Self.Cards" />
           <EntitySet Name="Lists" EntityType="Self.Lists" />
@@ -207,8 +258,12 @@
             <End Role="Lists" EntitySet="Lists" />
             <End Role="Cards" EntitySet="Cards" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Users_dbo_UserProfiles_Id" Association="Self.FK_dbo_Users_dbo_UserProfiles_Id">
+          <AssociationSet Name="FK_dbo_UserProfiles_dbo_Users_Id" Association="Self.FK_dbo_UserProfiles_dbo_Users_Id">
+            <End Role="Users" EntitySet="Users" />
             <End Role="UserProfiles" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="UserBoards" Association="Self.UserBoards">
+            <End Role="Boards" EntitySet="Boards" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
@@ -217,9 +272,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DataAccessLayerContextModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="KanbanBoardDBModelStoreContainer" CdmEntityContainer="KanbanBoardDBEntities">
           <EntitySetMapping Name="Boards">
-            <EntityTypeMapping TypeName="DataAccessLayer.ContextModel.Boards">
+            <EntityTypeMapping TypeName="KanbanBoardDBModel.Boards">
               <MappingFragment StoreEntitySet="Boards">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -228,7 +283,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cards">
-            <EntityTypeMapping TypeName="DataAccessLayer.ContextModel.Cards">
+            <EntityTypeMapping TypeName="KanbanBoardDBModel.Cards">
               <MappingFragment StoreEntitySet="Cards">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -238,7 +293,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lists">
-            <EntityTypeMapping TypeName="DataAccessLayer.ContextModel.Lists">
+            <EntityTypeMapping TypeName="KanbanBoardDBModel.Lists">
               <MappingFragment StoreEntitySet="Lists">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -247,25 +302,33 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserProfiles">
-            <EntityTypeMapping TypeName="DataAccessLayer.ContextModel.UserProfiles">
+            <EntityTypeMapping TypeName="KanbanBoardDBModel.UserProfiles">
               <MappingFragment StoreEntitySet="UserProfiles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="SecondName" ColumnName="SecondName" />
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="DataAccessLayer.ContextModel.Users">
+            <EntityTypeMapping TypeName="KanbanBoardDBModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Sha256Password" ColumnName="Sha256Password" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="UserBoards" TypeName="KanbanBoardDBModel.UserBoards" StoreEntitySet="UserBoards">
+            <EndProperty Name="Boards">
+              <ScalarProperty Name="Id" ColumnName="Board_Id" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="Id" ColumnName="User_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

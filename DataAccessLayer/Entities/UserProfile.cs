@@ -6,8 +6,9 @@ namespace DataAccessLayer.Models
 	[Table("UserProfiles")]
 	public class UserProfile
 	{
-		[Key]
+		[Key, ForeignKey("User")]
 		public int Id { get; set; }
+		public User User { get; set; }
 
 		[MaxLength(24)]
 		[Required(AllowEmptyStrings = false)]
@@ -20,9 +21,5 @@ namespace DataAccessLayer.Models
 		[MaxLength(byte.MaxValue)]
 		[Required(AllowEmptyStrings = false)]
 		public string ImagePath { get; set; }
-
-		[ForeignKey("User")]
-		public int UserId { get; set; }
-		public User User { get; set; }
 	}
 }
