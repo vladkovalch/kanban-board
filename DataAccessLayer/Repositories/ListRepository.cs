@@ -1,5 +1,5 @@
-﻿using DataAccessLayer.Models;
-using DataAccessLayer.Interfaces;
+﻿using DataAccessLayer.Interfaces;
+using DataAccessLayer.Models;
 using System.Data.Entity;
 
 namespace BusinessLogicLayer.Repositories

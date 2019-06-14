@@ -17,7 +17,7 @@ namespace DataAccessLayer.Models
 		[MaxLength(42)]
 		[Required(AllowEmptyStrings = false)]
 		public string SecondName { get; set; }
-		
+
 		[MaxLength(byte.MaxValue)]
 		[Required(AllowEmptyStrings = false)]
 		public string ImagePath { get; set; }
