@@ -31,11 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -50,22 +56,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MapperConfigurator.cs" />
     <Compile Include="DTO\BoardDTO.cs" />
     <Compile Include="DTO\CardDTO.cs" />
     <Compile Include="DTO\ListDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\UserProfileDTO.cs" />
     <Compile Include="Interfaces\IAuthorizationContract.cs" />
-    <Compile Include="Interfaces\IBoardContract.cs" />
-    <Compile Include="Interfaces\ICardContract.cs" />
-    <Compile Include="Interfaces\IListContract.cs" />
-    <Compile Include="Interfaces\IUserContract.cs" />
+    <Compile Include="Interfaces\IBoardMgmtContract.cs" />
+    <Compile Include="Interfaces\ICardMgmtContract.cs" />
+    <Compile Include="Interfaces\IListMgmtContract.cs" />
+    <Compile Include="Interfaces\IRegistrationContract.cs" />
+    <Compile Include="Interfaces\IUserMgmtContract.cs" />
+    <Compile Include="NinjectConfigurator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthorizationService.cs" />
-    <Compile Include="Services\BoardsService.cs" />
-    <Compile Include="Services\CardsService.cs" />
-    <Compile Include="Services\ListsService.cs" />
-    <Compile Include="Services\UsersService.cs" />
+    <Compile Include="Services\BoardsMgmtService.cs" />
+    <Compile Include="Services\CardsMgmtService.cs" />
+    <Compile Include="Services\ListsMgmtService.cs" />
+    <Compile Include="Services\RegistrationService.cs" />
+    <Compile Include="Services\UsersMgmtService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

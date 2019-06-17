@@ -6,24 +6,24 @@ using System.ServiceModel;
 namespace BusinessLogicLayer.Interfaces.Contracts
 {
 	[ServiceContract]
-	public interface IBoardContract
+	public interface IUserMgmtContract
 	{
 		[OperationContract]
-		void AddBoard(BoardDTO board);
+		void AddUser(UserDTO user);
 
 		[OperationContract]
-		BoardDTO FindBoardById(int id);
+		UserDTO FindUserById(int id);
 
 		[OperationContract]
-		IEnumerable<BoardDTO> GetBoards();
+		IEnumerable<UserDTO> GetUsers();
 
 		[OperationContract]
-		IEnumerable<BoardDTO> GetBoards(Func<BoardDTO, bool> predicate);
+		IEnumerable<UserDTO> GetUsers(Func<UserDTO, bool> predicate);
 
 		[OperationContract]
-		void RemoveBoard(BoardDTO board);
+		void RemoveUser(UserDTO user);
 
 		[OperationContract]
-		void UpdateBoard(BoardDTO board);
+		void UpdateUser(UserDTO user);
 	}
 }

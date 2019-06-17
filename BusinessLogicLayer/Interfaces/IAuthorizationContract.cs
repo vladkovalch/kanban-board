@@ -7,9 +7,12 @@ namespace BusinessLogicLayer.Interfaces.Contracts
 	public interface IAuthorizationContract
 	{
 		[OperationContract]
-		bool Register(UserDTO user);
+		bool Login(UserDTO user);
 
 		[OperationContract]
-		bool Login(UserDTO user);
+		bool CheckEmailIsExist(string email);
+
+		[OperationContract]
+		bool CheckIsPasswordMatch(string email, string password);
 	}
 }

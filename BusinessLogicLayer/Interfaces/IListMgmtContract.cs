@@ -6,7 +6,7 @@ using System.ServiceModel;
 namespace BusinessLogicLayer.Interfaces.Contracts
 {
 	[ServiceContract]
-	public interface IListContract
+	public interface IListMgmtContract
 	{
 		[OperationContract]
 		void AddList(ListDTO list);

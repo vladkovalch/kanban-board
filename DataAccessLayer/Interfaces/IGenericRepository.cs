@@ -8,13 +8,14 @@ namespace DataAccessLayer.Interfaces
 	public interface IGenericRepository<TEntity> where TEntity : class
 	{
 		void Create(TEntity item);
-		TEntity FindById(int id);
-		IEnumerable<TEntity> Get();
-		IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);
+		TEntity GetItem(TEntity item);
+		TEntity GetItem(Func<TEntity, bool> predicate);
+		TEntity GetItemById(int id);
+		IEnumerable<TEntity> GetItems();
+		IEnumerable<TEntity> GetItems(Func<TEntity, bool> predicate);
 		void Remove(TEntity item);
 		void Update(TEntity item);
 	}
-
 
 	public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
 	{
@@ -27,18 +28,29 @@ namespace DataAccessLayer.Interfaces
 			DbSet = context.Set<TEntity>();
 		}
 
-		virtual public IEnumerable<TEntity> Get()
+		virtual public IEnumerable<TEntity> GetItems()
 		{
 			return DbSet.AsNoTracking().ToList();
 		}
 
-		virtual public IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
+		virtual public IEnumerable<TEntity> GetItems(Func<TEntity, bool> predicate)
 		{
 			return DbSet.AsNoTracking().Where(predicate).ToList();
 		}
-		virtual public TEntity FindById(int id)
+
+		virtual public TEntity GetItemById(int id)
 		{
 			return DbSet.Find(id);
+		}
+
+		public TEntity GetItem(TEntity item)
+		{
+			return DbSet.Find(item);
+		}
+
+		public TEntity GetItem(Func<TEntity, bool> predicate)
+		{
+			return DbSet.AsNoTracking().Where(predicate).FirstOrDefault();
 		}
 
 		virtual public void Create(TEntity item)

@@ -1,19 +1,58 @@
-﻿using BusinessLogicLayer.DTO;
+﻿using AutoMapper;
+using BusinessLogicLayer.DTO;
 using BusinessLogicLayer.Interfaces.Contracts;
+using DataAccessLayer.Interfaces;
+using DataAccessLayer.Models;
 using System;
 
 namespace BusinessLogicLayer.Services
 {
 	public class AuthorizationService : IAuthorizationContract
 	{
-		public bool Login(UserDTO user)
+		private readonly IGenericRepository<User> _repository;
+		private readonly IMapper _mapper;
+
+		public AuthorizationService(IGenericRepository<User> repository, IMapper mapper)
 		{
-			throw new NotImplementedException();
+			_repository = repository;
+			_mapper = mapper;
 		}
 
-		public bool Register(UserDTO user)
+		public bool Login(UserDTO user)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				return _repository.GetItem(_mapper.Map<User>(user)) == null;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
+
+		public bool CheckEmailIsExist(string email)
+		{
+			try
+			{
+				return _repository.GetItem(x => x.Email == email) != null;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
+
+		public bool CheckIsPasswordMatch(string email, string password)
+		{
+			try
+			{
+				User user = _repository.GetItem(x => x.Email == email);
+				return user != null && user.Sha256Password == password;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 	}
 }
