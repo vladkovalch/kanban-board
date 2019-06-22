@@ -1,7 +1,7 @@
 namespace DataAccessLayer
 {
-	using DataAccessLayer.Models;
 	using System.Data.Entity;
+	using DataAccessLayer.Models;
 
 	public class Context : DbContext
 	{

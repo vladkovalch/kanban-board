@@ -1,5 +1,5 @@
-﻿using BusinessLogicLayer.DTO;
-using System.ServiceModel;
+﻿using System.ServiceModel;
+using BusinessLogicLayer.DTO;
 
 namespace BusinessLogicLayer.Interfaces.Contracts
 {

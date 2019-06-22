@@ -1,12 +1,14 @@
-﻿using AutoMapper;
+﻿using System;
+using System.ServiceModel;
+using AutoMapper;
 using BusinessLogicLayer.DTO;
 using BusinessLogicLayer.Interfaces;
 using DataAccessLayer.Interfaces;
 using DataAccessLayer.Models;
-using System;
 
 namespace BusinessLogicLayer.Services
 {
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	public class RegistrationService : IRegistrationContract
 	{
 		private readonly IGenericRepository<User> _repository;

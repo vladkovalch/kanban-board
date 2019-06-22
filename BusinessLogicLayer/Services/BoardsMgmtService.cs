@@ -1,13 +1,15 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.ServiceModel;
+using AutoMapper;
 using BusinessLogicLayer.DTO;
 using BusinessLogicLayer.Interfaces.Contracts;
 using DataAccessLayer.Interfaces;
 using DataAccessLayer.Models;
-using System;
-using System.Collections.Generic;
 
 namespace BusinessLogicLayer.Services
 {
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	public class BoardsMgmtService : IBoardMgmtContract
 	{
 		private readonly IGenericRepository<Board> _repository;

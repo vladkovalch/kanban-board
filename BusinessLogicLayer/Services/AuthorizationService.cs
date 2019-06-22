@@ -1,12 +1,14 @@
-﻿using AutoMapper;
+﻿using System;
+using System.ServiceModel;
+using AutoMapper;
 using BusinessLogicLayer.DTO;
 using BusinessLogicLayer.Interfaces.Contracts;
 using DataAccessLayer.Interfaces;
 using DataAccessLayer.Models;
-using System;
 
 namespace BusinessLogicLayer.Services
 {
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	public class AuthorizationService : IAuthorizationContract
 	{
 		private readonly IGenericRepository<User> _repository;

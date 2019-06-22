@@ -1,13 +1,14 @@
-﻿using BusinessLogicLayer.Repositories;
+﻿using System.Data.Entity;
+using Ninject.Modules;
+using BusinessLogicLayer.Repositories;
 using DataAccessLayer;
 using DataAccessLayer.Interfaces;
 using DataAccessLayer.Models;
-using Ninject.Modules;
-using System.Data.Entity;
+using AutoMapper;
 
 namespace BusinessLogicLayer
 {
-	internal class NinjectConfigurator : NinjectModule
+	public class NinjectConfigurator : NinjectModule
 	{
 		public override void Load()
 		{

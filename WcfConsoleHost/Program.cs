@@ -1,9 +1,10 @@
-﻿using BusinessLogicLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using BusinessLogicLayer;
 
 namespace WcfConsoleHost
 {
@@ -11,16 +12,10 @@ namespace WcfConsoleHost
 	{
 		static void Main(string[] args)
 		{
-			// Auto Mapper Configurations
-			var mappingConfig = new MapperConfigurator(mc =>
-			{
-				mc.AddProfile(new MappingProfile());
-			});
+			Configurator configurator = new Configurator();
+			configurator.Configure(Console.Out);
 
-			IMapper mapper = mappingConfig.CreateMapper();
-			services.AddSingleton(mapper);
-
-			services.AddMvc();
+			while (Console.ReadKey(true).Key != ConsoleKey.Escape) { }
 		}
 	}
 }

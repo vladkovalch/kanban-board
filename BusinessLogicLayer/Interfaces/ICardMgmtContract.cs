@@ -1,7 +1,7 @@
-﻿using BusinessLogicLayer.DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
+using BusinessLogicLayer.DTO;
 
 namespace BusinessLogicLayer.Interfaces.Contracts
 {
