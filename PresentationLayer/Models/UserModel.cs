@@ -1,7 +1,11 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,13 +13,15 @@ using System.Threading.Tasks;
 
 namespace PresentationLayer.Models
 {
-    public class User
+    public class UserModel : INotifyPropertyChanged
     {
         public int Id { get; set; }
+
+        public ObservableCollection<BoardModel> Boards { get; set; }
         //  public UserProfile Profile { get; set; }
         public string _email;
-        public string Email {
-
+        public string Email
+        {
             get
             {
                 return _email;
@@ -24,9 +30,7 @@ namespace PresentationLayer.Models
             {
                 IsValidEmail(value);
             }
-
         }
-
         private bool IsValidEmail(string value)
         {
             Regex reg = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
@@ -41,9 +45,8 @@ namespace PresentationLayer.Models
                 return false;
             }
         }
-
         private string _password;
-       public string Sha256Password
+        public string Sha256Password
         {
             get
             {
@@ -54,7 +57,25 @@ namespace PresentationLayer.Models
                 _password = ComputeSha256Hash(value);
             }
         }
+        public UserModel()
+        {
+            Boards = new ObservableCollection<BoardModel>();
+        }
 
+        //public Action<UserModel> AddTagToCardAct;
+
+        //COMMANDS
+        //private RelayCommand _inviteUserCmd;
+        //public RelayCommand InviteUserCmd
+        //{
+        //    get
+        //    {
+        //        return _inviteUserCmd ?? (_inviteUserCmd = new RelayCommand(() =>
+        //        {
+        //            AddTagToCardAct.Invoke(this);
+        //        }));
+        //    }
+        //}
         static string ComputeSha256Hash(string rawData)
         {
             using (SHA256 sha256Hash = SHA256.Create())
@@ -113,5 +134,11 @@ namespace PresentationLayer.Models
         //        return false;
         //    }
         //}
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
     }
 }

@@ -17,6 +17,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -28,15 +29,15 @@
             <TextBlock Text="In Progress" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Grid.Column="1" FontWeight="Bold"/>
             <TextBlock Text="On chek" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Grid.Column="2" FontWeight="Bold"/>
             <TextBlock Text="Done" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Grid.Column="3" FontWeight="Bold"/>
-            <ListBox Grid.Row="1">
+            <Button Grid.Row="3" Margin="5 0 0 1" Name="NewTask" Content="New task" Click="NewTask_Click"/>
+            <ListBox Grid.Row="1" ItemsSource="{Binding List}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="5" >
-                            <Border BorderThickness="2">
+                            <Border BorderThickness="2" Margin="1" Background="{Binding Color}">
                                 <StackPanel>
-                                    <TextBlock>Vasya</TextBlock>
-                                    <TextBlock>asa</TextBlock>
-                                    <TextBlock>asa</TextBlock>
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                    <TextBlock Text="{Binding CreationTime}"></TextBlock>
                                 </StackPanel>
                             </Border>
                         </StackPanel>

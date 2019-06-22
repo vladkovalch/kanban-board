@@ -26,13 +26,14 @@ namespace PresentationLayer
         bool cpassHasErr;
         public string Log { get; set; }
         public string Pass { get; set; }
-        public User User;
+        public UserModel User;
         public Authorization()
         {
             logHasErr = true;
             passHasErr = true;
           
             InitializeComponent();
+            User = new UserModel();
             Log_in_up.IsEnabled = false;
             LoginError.Visibility = Visibility.Collapsed;
             PassError.Visibility = Visibility.Collapsed;
@@ -49,15 +50,15 @@ namespace PresentationLayer
         {
             try
             {
-                //User.Email = Log;
-                //User.Sha256Password = Pass;
+                User.Email = Log;
+                User.Sha256Password = Pass;
                 DialogResult = true;
                 Close();
             }
             catch (Exception exc)
             {
-                
-            }
+                LoginError.Text = exc.Message;
+             }
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
