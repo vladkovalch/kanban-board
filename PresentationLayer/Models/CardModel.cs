@@ -32,7 +32,7 @@ namespace PresentationLayer.Models
         public ObservableCollection<UserModel> Participants { get; set; }
         public CardModel()
         {
-            
+            Participants = new ObservableCollection<UserModel>();
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

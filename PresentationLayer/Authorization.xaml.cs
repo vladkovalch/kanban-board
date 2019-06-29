@@ -29,6 +29,7 @@ namespace PresentationLayer
         public UserModel User;
         public Authorization()
         {
+           
             logHasErr = true;
             passHasErr = true;
           

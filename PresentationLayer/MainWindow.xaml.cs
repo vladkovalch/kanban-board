@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PresentationLayer.Models;
+using PresentationLayer.ViewModels;
 
 namespace PresentationLayer
 {
@@ -22,10 +23,10 @@ namespace PresentationLayer
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public int id = 0;
-        CardModel card = new CardModel();
-        ListModel list = new ListModel();
-        BoardModel board = new BoardModel();
+        //public int id = 0;
+        //CardModel card = new CardModel();
+        //ListModel list = new ListModel();
+        //BoardModel board = new BoardModel();
         public MainWindow()
         {
             Authorization authorization = new Authorization();
@@ -33,24 +34,9 @@ namespace PresentationLayer
             if (authorization.DialogResult != true)
                 Close();
             InitializeComponent();
-            DataContext = this;
+            DataContext = new MainWindowViewModel(this);
         }
 
-        private void NewTask_Click(object sender, RoutedEventArgs e)
-        {
-
-            New_task new_Task = new New_task();
-            new_Task.ShowDialog();
-            if (new_Task.DialogResult == true)
-            {
-                id++;
-                card.Id = id;
-                card.Name = new_Task.Text;
-                card.CreationTime = DateTime.Now;
-                card.Color = Color.FromArgb(1, 0, 0, 255);
-                list.Cards.Add(card);
-            }
-
-        }
+        
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using PresentationLayer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,23 +19,12 @@ namespace PresentationLayer
     /// <summary>
     /// Interaction logic for New_task.xaml
     /// </summary>
-    public partial class New_task : Window
+    public partial class New_task : MetroWindow
     {
-        public string Text { get; set; }
-        public New_task()
+        public New_task(int colId)
         {
+            DataContext = new NewTaskViewModel(colId, this);
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Text = _NewTask.Text;
-            this.Close();
         }
     }
 }

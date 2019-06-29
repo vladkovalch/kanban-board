@@ -12,6 +12,7 @@ namespace PresentationLayer.Models
 {
     public class BoardModel : INotifyPropertyChanged
     {
+        public int Id { get; set; }
         string _name; string _description;
         public string Name
         {

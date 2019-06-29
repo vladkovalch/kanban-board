@@ -23,6 +23,7 @@
             <RowDefinition />
             <RowDefinition/>
         </Grid.RowDefinitions>
+       
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Email" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox Name="Email" TextChanged="TextBox_TextChanged" Grid.Column="1" Grid.Row="0" Margin="5"></TextBox>
         <TextBlock Name="LoginError" Foreground="Red" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0 0 5 0"/>
@@ -41,5 +42,8 @@
             <Button Name="Log_in_up" Content="Log in" Margin="2" Click="Button_Click_1" Background="#FF11BB00"/>
             <Button Grid.Column="2" Content="Cancel" Margin="2" Click="Button_Click" Background="#FFF30D0D"/>
         </Grid>
+        <!--<Border Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Background="#664BFF8D" Visibility="{Binding LoaderVisible}" >
+            <Controls:ProgressRing />
+        </Border>-->
     </Grid>
 </Controls:MetroWindow>

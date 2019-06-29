@@ -1,4 +1,4 @@
-﻿<Window x:Class="PresentationLayer.New_task"
+﻿<metro:MetroWindow x:Class="PresentationLayer.New_task"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,6 +13,15 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Name" Style="{StaticResource Lable}"/>
+            <TextBox Margin="5 2 2 2" Text="{Binding Path=Card.Name, UpdateSourceTrigger=PropertyChanged}" 
+                         Grid.Column="1"/>
+        </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
@@ -20,17 +29,32 @@
             </Grid.ColumnDefinitions>
             <TextBlock Text="Expaire Data" Style="{StaticResource Lable}"/>
             <metro:DateTimePicker Grid.Column="1" Culture="uk-UA" FontSize="16"
-                                      SelectedDate="{Binding Card.ExpireDate}" Margin="5" SelectedTimeFormat="Short"/>
+                                      SelectedDate="{Binding Card.CreationTime}" Margin="5" SelectedTimeFormat="Short"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Click="Button_Click_1" Margin="2" Content="Add"/>
-            <Button Click="Button_Click" Grid.Column="1" Margin="2" Content="Cancel" Background="OrangeRed"/>
+            <Button Margin="2" Command="{Binding SaveCmd}">
+                <Button.Content>
+                    <WrapPanel>
+                        <TextBlock Text="Save" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource Lable}"/>
+                    </WrapPanel>
+                </Button.Content>
+            </Button>
+            <Button Command="{Binding CancelCmd}"  Grid.Column="1" Margin="2" Background="OrangeRed" >
+                <Button.Content>
+                    <WrapPanel>
+                        <TextBlock Text="Cancel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource Lable}"/>
+                    </WrapPanel>
+                </Button.Content>
+            </Button>
         </Grid>
-        <TextBox Name="_NewTask" Text="{Binding Path=Card.Name, UpdateSourceTrigger=PropertyChanged}" 
-                         Grid.Column="1"/>
+       
+        <Border Grid.RowSpan="2" Background="#664BFF8D" Panel.ZIndex="120" 
+                Visibility="{Binding LoaderVisible}" >
+            <metro:ProgressRing />
+        </Border>
     </Grid>
-</Window>
+</metro:MetroWindow>
