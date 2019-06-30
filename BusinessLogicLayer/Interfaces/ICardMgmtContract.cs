@@ -14,8 +14,9 @@ namespace BusinessLogicLayer.Interfaces.Contracts
 		[OperationContract]
 		CardDTO FindCardById(int id);
 
-		[OperationContract]
-		IEnumerable<CardDTO> GetCards();
+        [OperationContract(Name = "GetAllCards")]
+
+        IEnumerable<CardDTO> GetCards();
 
 		[OperationContract]
 		IEnumerable<CardDTO> GetCards(Func<CardDTO, bool> predicate);

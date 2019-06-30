@@ -14,7 +14,7 @@ namespace BusinessLogicLayer.Interfaces.Contracts
 		[OperationContract]
 		ListDTO FindListById(int id);
 
-		[OperationContract]
+		[OperationContract(Name ="GetAllLists")]
 		IEnumerable<ListDTO> GetLists();
 
 		[OperationContract]

@@ -14,7 +14,7 @@ namespace BusinessLogicLayer.Interfaces.Contracts
 		[OperationContract]
 		UserDTO FindUserById(int id);
 
-		[OperationContract]
+		[OperationContract(Name ="GetAllUsers")]
 		IEnumerable<UserDTO> GetUsers();
 
 		[OperationContract]

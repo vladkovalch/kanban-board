@@ -14,7 +14,7 @@ namespace BusinessLogicLayer.Interfaces.Contracts
 		[OperationContract]
 		BoardDTO FindBoardById(int id);
 
-		[OperationContract]
+		[OperationContract(Name ="GetAllBoards")]
 		IEnumerable<BoardDTO> GetBoards();
 
 		[OperationContract]
