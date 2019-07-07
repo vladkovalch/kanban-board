@@ -8,8 +8,8 @@ namespace DataAccessLayer
 		public Context()
 			: base("name=ConnectionString")
 		{
-            Database.SetInitializer<DropCreateDatabaseAlways>(new DropCreateDatabaseAlways());
-        }
+			Database.SetInitializer(new DefaultContextInitializer());
+		}
 
 		public virtual DbSet<Board> Boards { get; set; }
 		public virtual DbSet<Card> Cards { get; set; }

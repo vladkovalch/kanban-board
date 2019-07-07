@@ -47,7 +47,7 @@ namespace DataAccessLayer.Migrations
 				{
 					Id = c.Int(nullable: false, identity: true),
 					Email = c.String(nullable: false, maxLength: 64),
-					Sha256Password = c.String(nullable: false, maxLength: 64),
+					Sha256Password = c.String(nullable: false, maxLength: 256),
 					ProfileId = c.Int(nullable: false),
 				})
 				.PrimaryKey(t => t.Id);

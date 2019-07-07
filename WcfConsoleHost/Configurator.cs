@@ -55,33 +55,33 @@ namespace WcfConsoleHost
 				AuthorizationService authorizationService = new AuthorizationService(_userRepository, _mapper);
 				ServiceHost authorizationServiceHost = new ServiceHost(authorizationService);
 				authorizationServiceHost.Open();
-				_textWriter.Write("Authorization service was started!");
+				_textWriter.WriteLine("Authorization service was started!");
 
 				UsersMgmtService usersMgmtService = new UsersMgmtService(_userRepository, _mapper);
 				ServiceHost usersMgmtServiceHost = new ServiceHost(usersMgmtService);
 				usersMgmtServiceHost.Open();
-				_textWriter.Write("Users management service was started!");
+				_textWriter.WriteLine("Users management service was started!");
 
 				BoardsMgmtService boardsMgmtService = new BoardsMgmtService(_boardRepository, _mapper);
 				ServiceHost boardsMgmtServiceHost = new ServiceHost(boardsMgmtService);
 				boardsMgmtServiceHost.Open();
-				_textWriter.Write("Boards management service was started!");
+				_textWriter.WriteLine("Boards management service was started!");
 
 				ListsMgmtService listsMgmtService = new ListsMgmtService(_listRepository, _mapper);
 				ServiceHost listsMgmtServiceHost = new ServiceHost(listsMgmtService);
 				listsMgmtServiceHost.Open();
-				_textWriter.Write("Lists management service was started!");
+				_textWriter.WriteLine("Lists management service was started!");
 
 				CardsMgmtService cardsMgmtService = new CardsMgmtService(_cardRepository, _mapper);
 				ServiceHost cardsMgmtServiceHost = new ServiceHost(cardsMgmtService);
 				cardsMgmtServiceHost.Open();
-				_textWriter.Write("Cards management service was started!");
+				_textWriter.WriteLine("Cards management service was started!");
 
-                RegistrationService registration = new RegistrationService(_userRepository, _mapper);
-                ServiceHost regServiceHost = new ServiceHost(registration);
-                regServiceHost.Open();
-                _textWriter.Write("Regionistrat management service was started!");
-            }
+				RegistrationService registration = new RegistrationService(_userRepository, _mapper);
+				ServiceHost regServiceHost = new ServiceHost(registration);
+				regServiceHost.Open();
+				_textWriter.WriteLine("Registration management service was started!");
+			}
 			catch (Exception ex)
 			{
 				_textWriter.Write(ex.Message);

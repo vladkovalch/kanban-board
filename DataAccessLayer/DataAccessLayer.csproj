@@ -51,40 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boards.cs">
-      <DependentUpon>DataDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Cards.cs">
-      <DependentUpon>DataDiagram.tt</DependentUpon>
-    </Compile>
     <Compile Include="Context.cs" />
-    <Compile Include="DataDiagram.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataDiagram.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataDiagram.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataDiagram.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataDiagram.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="DefaultContextInitializer.cs" />
     <Compile Include="Entities\Board.cs" />
     <Compile Include="Entities\Card.cs" />
     <Compile Include="Entities\List.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
-    <Compile Include="Lists.cs">
-      <DependentUpon>DataDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906031946597_TableCreation.cs" />
-    <Compile Include="Migrations\201906031946597_TableCreation.Designer.cs">
-      <DependentUpon>201906031946597_TableCreation.cs</DependentUpon>
+    <Compile Include="Migrations\201907071633505_TableCreation.cs" />
+    <Compile Include="Migrations\201907071633505_TableCreation.Designer.cs">
+      <DependentUpon>201907071633505_TableCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,23 +70,10 @@
     <Compile Include="Repositories\ListRepository.cs" />
     <Compile Include="Repositories\UserProfileRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="UserProfiles.cs">
-      <DependentUpon>DataDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Users.cs">
-      <DependentUpon>DataDiagram.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
-    </None>
-    <EntityDeploy Include="DataDiagram.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataDiagram.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DataDiagram.edmx.diagram">
-      <DependentUpon>DataDiagram.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -117,21 +81,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906031946597_TableCreation.resx">
-      <DependentUpon>201906031946597_TableCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907071633505_TableCreation.resx">
+      <DependentUpon>201907071633505_TableCreation.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataDiagram.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataDiagram.edmx</DependentUpon>
-      <LastGenOutput>DataDiagram.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataDiagram.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataDiagram.edmx</DependentUpon>
-      <LastGenOutput>DataDiagram.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
