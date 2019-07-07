@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer.DTO;
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
-using BusinessLogicLayer.DTO;
 
 namespace BusinessLogicLayer.Interfaces.Contracts
 {
@@ -14,7 +14,7 @@ namespace BusinessLogicLayer.Interfaces.Contracts
 		[OperationContract]
 		ListDTO FindListById(int id);
 
-		[OperationContract(Name ="GetAllLists")]
+		[OperationContract(Name = "GetAllLists")]
 		IEnumerable<ListDTO> GetLists();
 
 		[OperationContract]

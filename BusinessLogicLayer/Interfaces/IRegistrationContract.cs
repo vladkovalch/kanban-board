@@ -1,5 +1,5 @@
-﻿using System.ServiceModel;
-using BusinessLogicLayer.DTO;
+﻿using BusinessLogicLayer.DTO;
+using System.ServiceModel;
 
 namespace BusinessLogicLayer.Interfaces
 {

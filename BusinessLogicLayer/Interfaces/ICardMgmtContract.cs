@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer.DTO;
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
-using BusinessLogicLayer.DTO;
 
 namespace BusinessLogicLayer.Interfaces.Contracts
 {
@@ -14,9 +14,8 @@ namespace BusinessLogicLayer.Interfaces.Contracts
 		[OperationContract]
 		CardDTO FindCardById(int id);
 
-        [OperationContract(Name = "GetAllCards")]
-
-        IEnumerable<CardDTO> GetCards();
+		[OperationContract(Name = "GetAllCards")]
+		IEnumerable<CardDTO> GetCards();
 
 		[OperationContract]
 		IEnumerable<CardDTO> GetCards(Func<CardDTO, bool> predicate);

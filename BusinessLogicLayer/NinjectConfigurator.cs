@@ -1,10 +1,9 @@
-﻿using System.Data.Entity;
-using Ninject.Modules;
-using BusinessLogicLayer.Repositories;
+﻿using BusinessLogicLayer.Repositories;
 using DataAccessLayer;
 using DataAccessLayer.Interfaces;
 using DataAccessLayer.Models;
-using AutoMapper;
+using Ninject.Modules;
+using System.Data.Entity;
 
 namespace BusinessLogicLayer
 {

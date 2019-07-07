@@ -1,12 +1,12 @@
-﻿using System.IO;
-using AutoMapper;
-using Ninject;
+﻿using AutoMapper;
 using BusinessLogicLayer;
 using BusinessLogicLayer.Services;
 using DataAccessLayer.Interfaces;
 using DataAccessLayer.Models;
-using System.ServiceModel;
+using Ninject;
 using System;
+using System.IO;
+using System.ServiceModel;
 
 namespace WcfConsoleHost
 {
