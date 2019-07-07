@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/cardservice?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+  <xs:complexType name="CardDTO">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="Color" type="q1:Color" />
+      <xs:element minOccurs="0" name="CreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CardDTO" nillable="true" type="tns:CardDTO" />
+  <xs:complexType name="ArrayOfCardDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CardDTO" nillable="true" type="tns:CardDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCardDTO" nillable="true" type="tns:ArrayOfCardDTO" />
+</xs:schema>

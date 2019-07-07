@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c2a70e91-329d-47d5-bf71-f431eb56e4e2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/cardservice" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="cardservice.disco" MetadataType="Disco" ID="f964a822-e355-4763-8062-1db34f546036" SourceId="1" SourceUrl="http://localhost/cardservice?disco" />
+    <MetadataFile FileName="CardsMgmtService.wsdl" MetadataType="Wsdl" ID="8ae9514d-bdc4-40a3-8dcd-cb9ae4174e84" SourceId="1" SourceUrl="http://localhost/cardservice?wsdl" />
+    <MetadataFile FileName="cardservice.xsd" MetadataType="Schema" ID="7b89d05c-c161-40c0-80fc-86d0057cee97" SourceId="1" SourceUrl="http://localhost/cardservice?xsd=xsd0" />
+    <MetadataFile FileName="cardservice1.xsd" MetadataType="Schema" ID="dab20122-d397-4127-9489-0482268797aa" SourceId="1" SourceUrl="http://localhost/cardservice?xsd=xsd1" />
+    <MetadataFile FileName="cardservice2.xsd" MetadataType="Schema" ID="e78341b6-a4cd-40b5-bf40-38263b83c04a" SourceId="1" SourceUrl="http://localhost/cardservice?xsd=xsd2" />
+    <MetadataFile FileName="cardservice3.xsd" MetadataType="Schema" ID="26439817-1930-421b-868e-30f5b18ab6ce" SourceId="1" SourceUrl="http://localhost/cardservice?xsd=xsd3" />
+    <MetadataFile FileName="cardservice4.xsd" MetadataType="Schema" ID="92f2bf9e-d894-409f-aa13-4d7823faf2c6" SourceId="1" SourceUrl="http://localhost/cardservice?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

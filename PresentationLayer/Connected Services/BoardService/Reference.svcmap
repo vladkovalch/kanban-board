@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="989b7551-349f-4e8a-8167-d0953239f4cf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/boardservice" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="boardservice.xsd" MetadataType="Schema" ID="2cd5a382-26f2-49f5-bf3c-7c3318ca54fb" SourceId="1" SourceUrl="http://localhost/boardservice?xsd=xsd4" />
+    <MetadataFile FileName="boardservice1.xsd" MetadataType="Schema" ID="75bef581-54f4-4fa4-b569-a5bf9144a09b" SourceId="1" SourceUrl="http://localhost/boardservice?xsd=xsd1" />
+    <MetadataFile FileName="boardservice2.xsd" MetadataType="Schema" ID="9741aadf-4e03-449c-b26c-986b4dd1f6b2" SourceId="1" SourceUrl="http://localhost/boardservice?xsd=xsd0" />
+    <MetadataFile FileName="boardservice3.xsd" MetadataType="Schema" ID="42fa2bda-ed12-4c1b-8fb3-28bee6444973" SourceId="1" SourceUrl="http://localhost/boardservice?xsd=xsd3" />
+    <MetadataFile FileName="boardservice4.xsd" MetadataType="Schema" ID="c7d5aa1d-22f5-4116-a0f7-f99139f2e3a6" SourceId="1" SourceUrl="http://localhost/boardservice?xsd=xsd2" />
+    <MetadataFile FileName="BoardsMgmtService.wsdl" MetadataType="Wsdl" ID="6c43f660-fdda-4833-abad-4446ce524518" SourceId="1" SourceUrl="http://localhost/boardservice?wsdl" />
+    <MetadataFile FileName="boardservice.disco" MetadataType="Disco" ID="92a6d420-2ee7-4008-b906-78664c904a4e" SourceId="1" SourceUrl="http://localhost/boardservice?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

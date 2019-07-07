@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer;
 using BusinessLogicLayer.DTO;
+//using PresentationLayer.BoardService;
+//using PresentationLayer.CardService;
+//using PresentationLayer.ListService;
+//using PresentationLayer.UserProfileService;
 using PresentationLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -10,11 +14,16 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using PresentationLayer.AuthorizationService;
 
 namespace PresentationLayer.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
+        //BoardMgmtContractClient boardMgmtContract = new BoardMgmtContractClient();
+        //ListMgmtContractClient listMgmtContract = new ListMgmtContractClient();
+        //CardMgmtContractClient cardMgmtContract = new CardMgmtContractClient();
+        AuthorizationContractClient authorization = new AuthorizationContractClient();
         BoardModel _curBoard;
         public BoardModel CurBoard
         {
@@ -51,12 +60,10 @@ namespace PresentationLayer.ViewModels
         Window _mainWindow;
         public MainWindowViewModel(Window mainWindow)
         {
-           
-            _mainWindow = mainWindow;
-            //MapperConfigurator.Configure();
 
-           
-           
+            
+
+            _mainWindow = mainWindow;
         }
         void GetUser()
         {
@@ -66,7 +73,7 @@ namespace PresentationLayer.ViewModels
             {
                 try
                 {
-                    UserDTO userDTO = null;
+                    BusinessLogicLayer.DTO.UserDTO userDTO = null;
                     if (userDTO != null)
                     {
                         User.Id = userDTO.Id;
@@ -92,14 +99,13 @@ namespace PresentationLayer.ViewModels
         void GetBoards(string type)
         {
             LoaderVisible = true;
-            BoardDTO[] boardsDTO = null;
+            BusinessLogicLayer.DTO.BoardDTO[] boardsDTO = null;
             Task task = new Task(() =>
             {
                 try
                 {
-                    // boardsDTO = (type == nameof(User.PartBoards)) ?
-                    //NetProxy.DataExchProxy.GetParticipatedBoards(NetProxy.Token, User.Id) :
-                    //NetProxy.DataExchProxy.GetBoards(NetProxy.Token, User.Id);
+                   // boardsDTO = (type == nameof(User.Boards)) ?
+                   //boardMgmtContract.FindBoardById(User.Id): 0;
 
                 }
                 catch (Exception e)
@@ -133,7 +139,7 @@ namespace PresentationLayer.ViewModels
         void GetColumns(int id)
         {
             LoaderVisible = true;
-            ListDTO[] listDTO = null;
+            BusinessLogicLayer.DTO.ListDTO[] listDTO = null;
             Task task = new Task(() =>
             {
                 try
@@ -162,7 +168,7 @@ namespace PresentationLayer.ViewModels
         void GetColumnCards(int id)
         {
             LoaderVisible = true;
-            CardDTO[] cardsDTO = null;
+            BusinessLogicLayer.DTO.CardDTO[] cardsDTO = null;
             Task task = new Task(() =>
             {
                 try
@@ -191,29 +197,6 @@ namespace PresentationLayer.ViewModels
                 }
             }
         }
-
-        void GetParticipants()
-        {
-            //try
-            //{
-            //    UserDTO[] partsDTO = NetProxy.DataExchProxy.GetParticipants(NetProxy.Token, CurBoard.Id);
-            //    if (partsDTO != null)
-            //    {
-            //        App.Current.Dispatcher.Invoke(() =>
-            //        {
-            //            CurBoard.Users.Clear();
-            //            foreach (var part in partsDTO)
-            //                CurBoard.Users.Add(Mapper.Map<UserModel>(part));
-            //        });
-            //    }
-            //}
-            //catch (Exception e)
-            //{
-            //    MessageBox.Show(e.Message + "\n" + e.StackTrace, "Error!",
-            //        MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-        }
-
         void LoadCurrentBoard()
         {
             if (CurBoard == null)
@@ -222,58 +205,58 @@ namespace PresentationLayer.ViewModels
             LoaderVisible = true;
             Task.Run(() =>
             {
-                //try
-                //{
-                //    //NetProxy.Configure();
-                //    ListDTO[] listsDTO = NetProxy.DataExchProxy.GetColumns(NetProxy.Token, CurBoard.Id);
-                //    if (listsDTO == null || listsDTO.Length == 0)
-                //        return;
-                //    App.Current.Dispatcher.Invoke(() =>
-                //    {
-                //        CurBoard.Lists.Clear();
-                //        foreach (var col in listsDTO)
-                //        {
-                //            ListModel columnModel = Mapper.Map<ListModel>(col);
-                //            columnModel.MainWindow = _mainWindow;
-                //            CurBoard.Lists.Add(columnModel);
-                //        }
-                //    });
-                   
-                //    //load cards
-                //    foreach (var col in CurBoard.Lists)
-                //    {
-                //        CardDTO[] cardsDTO = NetProxy.DataExchProxy.GetCards(NetProxy.Token, col.Id);
-                //        if (cardsDTO != null && cardsDTO.Length > 0)
-                //        {
-                //            App.Current.Dispatcher.Invoke(() =>
-                //            {
-                //                col.Cards.Clear();
-                //                foreach (var card in cardsDTO)
-                //                {
-                //                    CardModel cardModel = Mapper.Map<CardModel>(card);
-                //                    cardModel.ListId = col.Id;
-                //                    cardModel.BoardId = CurBoard.Id;
-                //                    col.Cards.Add(cardModel);
-                //                }
-                //            });
-                //        }
-                //    }
-                //}
-                //catch (Exception e)
-                //{
-                //    MessageBox.Show(e.Message + "\n" + e.StackTrace, "Error!",
-                //         MessageBoxButton.OK, MessageBoxImage.Error);
-                //}
-                //finally
-                //{
-                //    LoaderVisible = false;
-                //}
+                try
+                {
+                    
+                   //// ListDTO[] listsDTO = new ListService.ListMgmtContractClient().GetAllLists();
+                   // if (listsDTO == null || listsDTO.Length == 0)
+                   //     return;
+                   // App.Current.Dispatcher.Invoke(() =>
+                   // {
+                   //     CurBoard.Lists.Clear();
+                   //     foreach (var col in listsDTO)
+                   //     {
+                   //         ListModel columnModel = Mapper.Map<ListModel>(col);
+                   //         columnModel.MainWindow = _mainWindow;
+                   //         CurBoard.Lists.Add(columnModel);
+                   //     }
+                   // });
+
+                   // //load cards
+                   // foreach (var col in CurBoard.Lists)
+                   // {
+                   //     CardDTO[] cardsDTO = new CardService.CardMgmtContractClient().GetAllCards();
+                   //     if (cardsDTO != null && cardsDTO.Length > 0)
+                   //     {
+                   //         App.Current.Dispatcher.Invoke(() =>
+                   //         {
+                   //             col.Cards.Clear();
+                   //             foreach (var card in cardsDTO)
+                   //             {
+                   //                 CardModel cardModel = Mapper.Map<CardModel>(card);
+                   //                 cardModel.ListId = col.Id;
+                   //                 cardModel.BoardId = CurBoard.Id;
+                   //                 col.Cards.Add(cardModel);
+                   //             }
+                   //         });
+                   //     }
+                    //}
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message + "\n" + e.StackTrace, "Error!",
+                         MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    LoaderVisible = false;
+                }
             });
 
         }
 
         //CALLBACKS
-        void AddNewCard(CardDTO card, int colId)
+        void AddNewCard(AuthorizationService.CardDTO card, int colId)
         {
             ListModel col = CurBoard.Lists.Where(c => c.Id == colId).FirstOrDefault();
             if (col != null)
@@ -317,7 +300,7 @@ namespace PresentationLayer.ViewModels
             });
         }
 
-        void EditCardCallback(CardDTO cardDTO)
+        void EditCardCallback(BusinessLogicLayer.DTO.CardDTO cardDTO)
         {
             CardModel cardModel = null;
             foreach (var col in CurBoard.Lists)
@@ -333,16 +316,16 @@ namespace PresentationLayer.ViewModels
             cardModel.CreationTime = cardDTO.CreationTime;
         }
 
-        void AddColumnCallback(ListDTO columnDTO)
+        void AddColumnCallback(BusinessLogicLayer.DTO.ListDTO columnDTO)
         {
             ListModel col = Mapper.Map<ListModel>(columnDTO);
-            //col.MoveCardAct = MoveCard;
+           
             col.MainWindow = _mainWindow;
             CurBoard.Lists.Add(col);
         }
 
 
-        void ParticipantAddedCallback(UserDTO userDTO)
+        void ParticipantAddedCallback(BusinessLogicLayer.DTO.UserDTO userDTO)
         {
             UserModel userModel = Mapper.Map<UserModel>(userDTO);
             if (userModel != null)

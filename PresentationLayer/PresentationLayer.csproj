@@ -58,6 +58,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -79,6 +81,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\AuthorizationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\BoardService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CardService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ListService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\RegistrationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserProfileService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewTaskViewModel.cs" />
@@ -136,6 +168,109 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\AuthorizationService\AuthorizationService.wsdl" />
+    <None Include="Connected Services\AuthorizationService\authservice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthorizationService\authservice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthorizationService\authservice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthorizationService\authservice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BoardService\boardservice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BoardService\boardservice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BoardService\boardservice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BoardService\boardservice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BoardService\boardservice4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BoardService\BoardsMgmtService.wsdl" />
+    <None Include="Connected Services\BoardService\PresentationLayer.BoardService.BoardDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CardService\cardservice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CardService\cardservice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CardService\cardservice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CardService\cardservice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CardService\cardservice4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CardService\CardsMgmtService.wsdl" />
+    <None Include="Connected Services\CardService\PresentationLayer.CardService.CardDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ListService\listservice.wsdl" />
+    <None Include="Connected Services\ListService\listservice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ListService\listservice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ListService\listservice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ListService\listservice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ListService\listservice4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ListService\ListsMgmtService.wsdl" />
+    <None Include="Connected Services\ListService\PresentationLayer.ListService.ListDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RegistrationService\RegistrationService.wsdl" />
+    <None Include="Connected Services\RegistrationService\regservice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RegistrationService\regservice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RegistrationService\regservice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RegistrationService\regservice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileService\PresentationLayer.UserProfileService.UserDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UserProfileService\userprofservice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileService\userprofservice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileService\userprofservice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileService\userprofservice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileService\userprofservice4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileService\UsersMgmtService.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,6 +288,107 @@
       <Project>{80EF10AC-CE90-4A89-A024-0FB60610966A}</Project>
       <Name>BusinessLogicLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AuthorizationService\" />
+    <WCFMetadataStorage Include="Connected Services\BoardService\" />
+    <WCFMetadataStorage Include="Connected Services\CardService\" />
+    <WCFMetadataStorage Include="Connected Services\ListService\" />
+    <WCFMetadataStorage Include="Connected Services\RegistrationService\" />
+    <WCFMetadataStorage Include="Connected Services\UserProfileService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorizationService\authservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorizationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorizationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthorizationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BoardService\boardservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BoardService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BoardService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BoardService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ListService\listservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ListService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ListService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ListService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CardService\cardservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CardService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CardService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CardService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserProfileService\userprofservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserProfileService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserProfileService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserProfileService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RegistrationService\regservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RegistrationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RegistrationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RegistrationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

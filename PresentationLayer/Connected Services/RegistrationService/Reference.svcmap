@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2b26ef75-3271-4fa1-8ae0-a277eb44db38" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/regservice" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="regservice.xsd" MetadataType="Schema" ID="a1f76243-693a-4ea6-882c-43efe20cb1de" SourceId="1" SourceUrl="http://localhost/regservice?xsd=xsd3" />
+    <MetadataFile FileName="regservice1.xsd" MetadataType="Schema" ID="6e28102b-c9f7-45f2-8266-f07b3db9b9cd" SourceId="1" SourceUrl="http://localhost/regservice?xsd=xsd0" />
+    <MetadataFile FileName="regservice2.xsd" MetadataType="Schema" ID="fbe08f64-3473-4eac-9e02-75f45df89b3f" SourceId="1" SourceUrl="http://localhost/regservice?xsd=xsd2" />
+    <MetadataFile FileName="regservice.disco" MetadataType="Disco" ID="ff1d92cd-778f-4d72-b3a8-47011a772806" SourceId="1" SourceUrl="http://localhost/regservice?disco" />
+    <MetadataFile FileName="RegistrationService.wsdl" MetadataType="Wsdl" ID="7b204d22-b1b8-46f8-8cb4-4221f34ab673" SourceId="1" SourceUrl="http://localhost/regservice?wsdl" />
+    <MetadataFile FileName="regservice3.xsd" MetadataType="Schema" ID="4e54ee8d-adbd-4a45-8c5d-192a22b6210c" SourceId="1" SourceUrl="http://localhost/regservice?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

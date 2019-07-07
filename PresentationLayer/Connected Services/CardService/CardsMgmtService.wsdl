@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CardsMgmtService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/cardservice?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/cardservice?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/cardservice?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" />
+      <xsd:import schemaLocation="http://localhost/cardservice?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+      <xsd:import schemaLocation="http://localhost/cardservice?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICardMgmtContract_AddCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCard" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_AddCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_FindCardById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindCardById" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_FindCardById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindCardByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_GetAllCards_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCards" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_GetAllCards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_GetCards_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCards" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_GetCards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_RemoveCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCard" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_RemoveCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_UpdateCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCard" />
+  </wsdl:message>
+  <wsdl:message name="ICardMgmtContract_UpdateCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCardResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICardMgmtContract">
+    <wsdl:operation name="AddCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICardMgmtContract/AddCard" message="tns:ICardMgmtContract_AddCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICardMgmtContract/AddCardResponse" message="tns:ICardMgmtContract_AddCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCardById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICardMgmtContract/FindCardById" message="tns:ICardMgmtContract_FindCardById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICardMgmtContract/FindCardByIdResponse" message="tns:ICardMgmtContract_FindCardById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCards">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICardMgmtContract/GetAllCards" message="tns:ICardMgmtContract_GetAllCards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICardMgmtContract/GetAllCardsResponse" message="tns:ICardMgmtContract_GetAllCards_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCards">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICardMgmtContract/GetCards" message="tns:ICardMgmtContract_GetCards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICardMgmtContract/GetCardsResponse" message="tns:ICardMgmtContract_GetCards_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICardMgmtContract/RemoveCard" message="tns:ICardMgmtContract_RemoveCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICardMgmtContract/RemoveCardResponse" message="tns:ICardMgmtContract_RemoveCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICardMgmtContract/UpdateCard" message="tns:ICardMgmtContract_UpdateCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICardMgmtContract/UpdateCardResponse" message="tns:ICardMgmtContract_UpdateCard_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="card" type="tns:ICardMgmtContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCard">
+      <soap:operation soapAction="http://tempuri.org/ICardMgmtContract/AddCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCardById">
+      <soap:operation soapAction="http://tempuri.org/ICardMgmtContract/FindCardById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCards">
+      <soap:operation soapAction="http://tempuri.org/ICardMgmtContract/GetAllCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCards">
+      <soap:operation soapAction="http://tempuri.org/ICardMgmtContract/GetCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCard">
+      <soap:operation soapAction="http://tempuri.org/ICardMgmtContract/RemoveCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCard">
+      <soap:operation soapAction="http://tempuri.org/ICardMgmtContract/UpdateCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CardsMgmtService">
+    <wsdl:port name="card" binding="tns:card">
+      <soap:address location="http://localhost/cardservice/card" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

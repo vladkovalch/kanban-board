@@ -32,10 +32,10 @@ namespace BusinessLogicLayer.Services
 
 				return false;
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
 				return false;
 			}
 		}
-	}
+	}C:\Users\Andrew\source\repos\WahahaQ\KanbanBoard\DataAccessLayer\DataDiagram.edmx
 }

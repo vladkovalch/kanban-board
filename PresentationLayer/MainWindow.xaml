@@ -104,7 +104,7 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>-->
-            <Button Grid.Row="3" Margin="5 0 0 1" Name="NewTask" Content="New task" />
+            <Button Grid.Row="3" Margin="5 0 0 1" Name="NewTask" Content="New task" Click="NewTask_Click" />
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

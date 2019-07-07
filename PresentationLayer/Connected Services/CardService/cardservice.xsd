@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/cardservice?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" />
+  <xs:import schemaLocation="http://localhost/cardservice?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:element name="AddCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" minOccurs="0" name="card" nillable="true" type="q1:CardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCardResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCardById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCardByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" minOccurs="0" name="FindCardByIdResult" nillable="true" type="q2:CardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCards">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" minOccurs="0" name="GetAllCardsResult" nillable="true" type="q3:ArrayOfCardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCards">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="predicate" nillable="true" type="q4:FuncOfCardDTObooleanhP_PJSrOT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" minOccurs="0" name="GetCardsResult" nillable="true" type="q5:ArrayOfCardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" minOccurs="0" name="card" nillable="true" type="q6:CardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveCardResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" minOccurs="0" name="card" nillable="true" type="q7:CardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCardResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

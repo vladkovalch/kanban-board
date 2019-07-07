@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b61e9d57-e3f5-4a53-b226-46f97328e7e3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/listservice" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ListsMgmtService.wsdl" MetadataType="Wsdl" ID="34434252-7bac-4092-a5d4-6f4df5af78a4" SourceId="1" SourceUrl="http://localhost/listservice?wsdl" />
+    <MetadataFile FileName="listservice.xsd" MetadataType="Schema" ID="94ec174b-02f3-4e4d-a32c-ee36852f8584" SourceId="1" SourceUrl="http://localhost/listservice?xsd=xsd1" />
+    <MetadataFile FileName="listservice1.xsd" MetadataType="Schema" ID="683597eb-4175-4864-986b-1f8468bb1bb6" SourceId="1" SourceUrl="http://localhost/listservice?xsd=xsd0" />
+    <MetadataFile FileName="listservice2.xsd" MetadataType="Schema" ID="65a7cef8-e374-42e1-a7fb-66841bcb4526" SourceId="1" SourceUrl="http://localhost/listservice?xsd=xsd3" />
+    <MetadataFile FileName="listservice3.xsd" MetadataType="Schema" ID="e0042de6-7aba-4b72-9cca-f74b013be496" SourceId="1" SourceUrl="http://localhost/listservice?xsd=xsd2" />
+    <MetadataFile FileName="listservice.wsdl" MetadataType="Wsdl" ID="9827a43e-2f19-48f0-b6de-660fe11f39a9" SourceId="1" SourceUrl="http://localhost/listservice?wsdl=wsdl0" />
+    <MetadataFile FileName="listservice4.xsd" MetadataType="Schema" ID="e476cd3c-f254-4469-9957-e35a30ee9953" SourceId="1" SourceUrl="http://localhost/listservice?xsd=xsd4" />
+    <MetadataFile FileName="listservice.disco" MetadataType="Disco" ID="7825f3b5-a55b-4ab2-8877-ee0f5b2e3c60" SourceId="1" SourceUrl="http://localhost/listservice?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

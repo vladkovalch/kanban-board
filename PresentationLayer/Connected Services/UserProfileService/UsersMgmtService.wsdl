@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UsersMgmtService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/userprofservice?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/userprofservice?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/userprofservice?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BusinessLogicLayer.DTO" />
+      <xsd:import schemaLocation="http://localhost/userprofservice?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+      <xsd:import schemaLocation="http://localhost/userprofservice?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserMgmtContract_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_FindUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserById" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_FindUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_RemoveUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_RemoveUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserMgmtContract_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserMgmtContract">
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserMgmtContract/AddUser" message="tns:IUserMgmtContract_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserMgmtContract/AddUserResponse" message="tns:IUserMgmtContract_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserMgmtContract/FindUserById" message="tns:IUserMgmtContract_FindUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserMgmtContract/FindUserByIdResponse" message="tns:IUserMgmtContract_FindUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserMgmtContract/GetAllUsers" message="tns:IUserMgmtContract_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserMgmtContract/GetAllUsersResponse" message="tns:IUserMgmtContract_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserMgmtContract/GetUsers" message="tns:IUserMgmtContract_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserMgmtContract/GetUsersResponse" message="tns:IUserMgmtContract_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserMgmtContract/RemoveUser" message="tns:IUserMgmtContract_RemoveUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserMgmtContract/RemoveUserResponse" message="tns:IUserMgmtContract_RemoveUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserMgmtContract/UpdateUser" message="tns:IUserMgmtContract_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserMgmtContract/UpdateUserResponse" message="tns:IUserMgmtContract_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="userprof" type="tns:IUserMgmtContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IUserMgmtContract/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserById">
+      <soap:operation soapAction="http://tempuri.org/IUserMgmtContract/FindUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IUserMgmtContract/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IUserMgmtContract/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <soap:operation soapAction="http://tempuri.org/IUserMgmtContract/RemoveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IUserMgmtContract/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UsersMgmtService">
+    <wsdl:port name="userprof" binding="tns:userprof">
+      <soap:address location="http://localhost/userprofservice/userprofile" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

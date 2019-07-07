@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurationSnapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:xml-wcfconfigurationsnapshot">
+  <behaviors />
+  <bindings>
+    <binding digest="System.ServiceModel.Configuration.BasicHttpBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;list&quot; /&gt;" bindingType="basicHttpBinding" name="list" />
+    <binding digest="System.ServiceModel.Configuration.WSHttpBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;mex&quot;&gt;&lt;security mode=&quot;None&quot; /&gt;&lt;/Data&gt;" bindingType="wsHttpBinding" name="mex" />
+  </bindings>
+  <endpoints>
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://localhost/listservice/mex&quot; binding=&quot;wsHttpBinding&quot; bindingConfiguration=&quot;mex&quot; contract=&quot;ListService.IListMgmtContract&quot; name=&quot;mex&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://localhost/listservice/mex&quot; binding=&quot;wsHttpBinding&quot; bindingConfiguration=&quot;mex&quot; contract=&quot;ListService.IListMgmtContract&quot; name=&quot;mex&quot; /&gt;" contractName="ListService.IListMgmtContract" name="mex" />
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://localhost/listservice/list&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;list&quot; contract=&quot;ListService.IListMgmtContract&quot; name=&quot;list&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://localhost/listservice/list&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;list&quot; contract=&quot;ListService.IListMgmtContract&quot; name=&quot;list&quot; /&gt;" contractName="ListService.IListMgmtContract" name="list" />
+  </endpoints>
+</configurationSnapshot>

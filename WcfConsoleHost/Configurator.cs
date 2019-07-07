@@ -76,7 +76,12 @@ namespace WcfConsoleHost
 				ServiceHost cardsMgmtServiceHost = new ServiceHost(cardsMgmtService);
 				cardsMgmtServiceHost.Open();
 				_textWriter.Write("Cards management service was started!");
-			}
+
+                RegistrationService registration = new RegistrationService(_userRepository, _mapper);
+                ServiceHost regServiceHost = new ServiceHost(registration);
+                regServiceHost.Open();
+                _textWriter.Write("Regionistrat management service was started!");
+            }
 			catch (Exception ex)
 			{
 				_textWriter.Write(ex.Message);

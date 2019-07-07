@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b37abb8b-6e28-4998-b006-1342c77253c4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/userprofservice" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="userprofservice.disco" MetadataType="Disco" ID="b3a50aad-69ab-426b-8ecf-60a565ec2ae2" SourceId="1" SourceUrl="http://localhost/userprofservice?disco" />
+    <MetadataFile FileName="UsersMgmtService.wsdl" MetadataType="Wsdl" ID="3f5341e7-fd76-4015-85c4-cec0307042b6" SourceId="1" SourceUrl="http://localhost/userprofservice?wsdl" />
+    <MetadataFile FileName="userprofservice.xsd" MetadataType="Schema" ID="8b6116a6-d109-429f-a1e6-8b1dfd0fbfc7" SourceId="1" SourceUrl="http://localhost/userprofservice?xsd=xsd4" />
+    <MetadataFile FileName="userprofservice1.xsd" MetadataType="Schema" ID="6104458c-fcc0-4fbc-813e-b6bbbe9c3f67" SourceId="1" SourceUrl="http://localhost/userprofservice?xsd=xsd2" />
+    <MetadataFile FileName="userprofservice2.xsd" MetadataType="Schema" ID="a3fa2263-9976-48ea-848c-b9539204169b" SourceId="1" SourceUrl="http://localhost/userprofservice?xsd=xsd3" />
+    <MetadataFile FileName="userprofservice3.xsd" MetadataType="Schema" ID="fde9a1e5-8ec6-4eb9-9413-d2ecfa0f2fd0" SourceId="1" SourceUrl="http://localhost/userprofservice?xsd=xsd0" />
+    <MetadataFile FileName="userprofservice4.xsd" MetadataType="Schema" ID="729578dd-7b96-403b-bca3-b821e954057d" SourceId="1" SourceUrl="http://localhost/userprofservice?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

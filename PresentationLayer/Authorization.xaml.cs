@@ -1,4 +1,7 @@
 ﻿using MahApps.Metro.Controls;
+using PresentationLayer.BoardService;
+using PresentationLayer.CardService;
+using PresentationLayer.ListService;
 using PresentationLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -32,7 +35,7 @@ namespace PresentationLayer
            
             logHasErr = true;
             passHasErr = true;
-          
+
             InitializeComponent();
             User = new UserModel();
             Log_in_up.IsEnabled = false;
