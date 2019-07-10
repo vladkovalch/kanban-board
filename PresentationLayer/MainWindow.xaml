@@ -109,8 +109,6 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-
-
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -174,6 +172,6 @@
             </Grid>
         </Grid>
 
-        <TextBlock Text="{Binding User.Email}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"></TextBlock>
+        <TextBlock x:Name="CurrentUser" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"></TextBlock>
     </Grid>
 </Controls:MetroWindow>

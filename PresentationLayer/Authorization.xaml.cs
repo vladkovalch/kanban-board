@@ -32,18 +32,21 @@ namespace PresentationLayer
         public UserModel User;
         public Authorization()
         {
-           
+
             logHasErr = true;
             passHasErr = true;
 
             InitializeComponent();
             User = new UserModel();
             Log_in_up.IsEnabled = false;
+            Sing_in.IsEnabled = false;
+            Loader.Visibility = Visibility.Collapsed;
             LoginError.Visibility = Visibility.Collapsed;
             PassError.Visibility = Visibility.Collapsed;
             CPassError.Visibility = Visibility.Collapsed;
             Help.Visibility = Visibility.Collapsed;
             ConfirmPass.Visibility = Visibility.Collapsed;
+            Sing_in.Visibility = Visibility.Collapsed;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -54,15 +57,49 @@ namespace PresentationLayer
         {
             try
             {
+                AuthorizationService.AuthorizationContractClient client = new AuthorizationService.AuthorizationContractClient();
                 User.Email = Log;
                 User.Sha256Password = Pass;
+                if (client.CheckEmailIsExist(User.Email)==false)
+                {
+                    DialogResult = false;
+                    MessageBox.Show("Your mail is failed!");
+                    Close();
+                }
+                else if (client.CheckIsPasswordMatch(User.Email, User.Sha256Password)==false)
+                {
+                    DialogResult = false;
+                    MessageBox.Show("Your password is wrong!");
+                    Close();
+                }
+                else
+                {
+                    DialogResult = true;
+                    Close();
+                }
+            }
+            catch (Exception exc)
+            {
+                LoginError.Text = exc.Message;
+            }
+        }
+        private void Sing_in_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                RegistrationService.RegistrationContractClient client = new RegistrationService.RegistrationContractClient();
+                User.Email = Log;
+                User.Sha256Password = Pass;
+                var b = client.Register(new BusinessLogicLayer.DTO.UserDTO { Email = User.Email, Sha256Password = User.Sha256Password });
+               // var b= client.Register(new BusinessLogicLayer.DTO.UserDTO { Email = "asda@gmail.com", Sha256Password = "AsdC@!31dfs" });
+                //MessageBox.Show(b.ToString());
                 DialogResult = true;
                 Close();
             }
             catch (Exception exc)
             {
                 LoginError.Text = exc.Message;
-             }
+            }
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -111,7 +148,11 @@ namespace PresentationLayer
 
         void ButtonTrigger()
         {
-            Log_in_up.IsEnabled = (logHasErr || passHasErr || cpassHasErr) ? false : true;
+            Log_in_up.IsEnabled = (logHasErr || passHasErr) ? false : true;
+        }
+        void ButtonTrigger1()
+        {
+            Sing_in.IsEnabled = (logHasErr || passHasErr || cpassHasErr) ? false : true;
         }
 
         private void ConfirmPass_PasswordChanged(object sender, RoutedEventArgs e)
@@ -138,7 +179,7 @@ namespace PresentationLayer
             }
 
             CPassError.Visibility = (passHasErr) ? Visibility.Visible : Visibility.Collapsed;
-            ButtonTrigger();
+            ButtonTrigger1();
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -147,12 +188,16 @@ namespace PresentationLayer
             {
                 Help.Visibility = Visibility.Visible;
                 ConfirmPass.Visibility = Visibility.Visible;
+                Sing_in.Visibility = Visibility.Visible;
             }
             else
             {
                 Help.Visibility = Visibility.Collapsed;
                 ConfirmPass.Visibility = Visibility.Collapsed;
+                Sing_in.Visibility = Visibility.Collapsed;
             }
         }
+
+
     }
 }

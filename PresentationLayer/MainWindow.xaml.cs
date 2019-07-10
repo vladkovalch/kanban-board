@@ -29,26 +29,22 @@ namespace PresentationLayer
 		//BoardModel board = new BoardModel();
 		public MainWindow()
 		{
-			//Authorization authorization = new Authorization();
-			//authorization.ShowDialog();
-			//if (authorization.DialogResult != true)
-			//    Close();
-			InitializeComponent();
-			RegistrationService.RegistrationContractClient client = new RegistrationService.RegistrationContractClient();
-			var b = client.Register(new BusinessLogicLayer.DTO.UserDTO { Email = "asda@gmail.com", Sha256Password = "AsdC@!31dfs" });
-			MessageBox.Show(b.ToString());
+            Authorization authorization = new Authorization();
+            CurrentUser.Text = authorization.Email.Text;
+            authorization.ShowDialog();
+            if (authorization.DialogResult != true)
+                Close();
+          
+            InitializeComponent();
+			//RegistrationService.RegistrationContractClient client = new RegistrationService.RegistrationContractClient();
+			//var b = client.Register(new BusinessLogicLayer.DTO.UserDTO { Email = "asda@gmail.com", Sha256Password = "AsdC@!31dfs" });
+			//MessageBox.Show(b.ToString());
 			//DataContext = new MainWindowViewModel(this);
 		}
 
 		private void NewTask_Click(object sender, RoutedEventArgs e)
 		{
-			Task.Run(() =>
-			{
-				New_task new_Task = new New_task(1);
-				new_Task.ShowDialog();
-				if (new_Task.DialogResult != true)
-					Close();
-			});
+			
 		}
 	}
 }

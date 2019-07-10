@@ -42,12 +42,13 @@ namespace PresentationLayer.ViewModels
                 return _signUpCmd ?? (_signUpCmd = new RelayCommand(() =>
                 {
                     LoaderVisible = true;
-                    Task.Run(() => {
+                    Task.Run(() =>
+                    {
                         try
                         {
                             if (true)//NetProxy.RegProxy.RegisterUser(new UserDTO { Email = User.Email }, User.Sha256Password))
                             {
-                               // Token = NetProxy.AuthProxy.Login(User.Email, User.Sha256Password);
+                                // Token = NetProxy.AuthProxy.Login(User.Email, User.Sha256Password);
                                 _window.Dispatcher.Invoke(() =>
                                 {
                                     _window.DialogResult = true;
@@ -76,10 +77,11 @@ namespace PresentationLayer.ViewModels
                 return _loginCmd ?? (_loginCmd = new RelayCommand(() =>
                 {
                     LoaderVisible = true;
-                    Task.Run(() => {
+                    Task.Run(() =>
+                    {
                         try
                         {
-                           //
+                            //
                         }
                         catch (Exception e)
                         {

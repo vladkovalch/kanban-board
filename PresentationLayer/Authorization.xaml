@@ -23,14 +23,13 @@
             <RowDefinition />
             <RowDefinition/>
         </Grid.RowDefinitions>
-       
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Email" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox Name="Email" TextChanged="TextBox_TextChanged" Grid.Column="1" Grid.Row="0" Margin="5"></TextBox>
         <TextBlock Name="LoginError" Foreground="Red" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0 0 5 0"/>
         <TextBlock Grid.Column="0" Grid.Row="2" Text="Pass" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <PasswordBox Name="Password" PasswordChanged="PasswordBox_PasswordChanged" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="5 5 10 5" />
         <TextBlock Name="PassError" Foreground="Red" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="0 0 5 0"/>
-        <CheckBox Checked="CheckBox_Checked" Grid.Row="4" Content="Registration" Margin="2" Grid.ColumnSpan="2" HorizontalAlignment="Center"></CheckBox>
+        <CheckBox x:Name="ChekReg" Checked="CheckBox_Checked" Grid.Row="4" Content="Registration" Margin="2" Grid.ColumnSpan="2" HorizontalAlignment="Center"></CheckBox>
         <TextBlock x:Name="Help" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8">Confirm pasword</TextBlock>
         <PasswordBox Name="ConfirmPass" PasswordChanged="ConfirmPass_PasswordChanged" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Margin="5 5 10 5" />
         <TextBlock Name="CPassError" Foreground="Red" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Margin="0 0 5 0"/>
@@ -42,8 +41,9 @@
             <Button Name="Log_in_up" Content="Log in" Margin="2" Click="Button_Click_1" Background="#FF11BB00"/>
             <Button Grid.Column="2" Content="Cancel" Margin="2" Click="Button_Click" Background="#FFF30D0D"/>
         </Grid>
-        <!--<Border Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Background="#664BFF8D" Visibility="{Binding LoaderVisible}" >
+        <Button Grid.Column="0" Grid.Row="7" Name="Sing_in" Content="Sing up" Margin="2" Click="Sing_in_Click" Background="#FF11BB00"/>
+        <Border x:Name="Loader" Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Background="#664BFF8D">
             <Controls:ProgressRing />
-        </Border>-->
+        </Border>
     </Grid>
 </Controls:MetroWindow>
